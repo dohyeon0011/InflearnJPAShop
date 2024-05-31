@@ -1,9 +1,9 @@
 package jpabook.jpashop.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Item {
@@ -16,6 +16,10 @@ public class Item {
     private String name;
     private int price;
     private int stockQuantity;
+
+    // 다대다 양방향(읽기용), 어떤 상품이 어디 카테고리 소속인지 바로 알고 싶을 때
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 
     public Long getId() {
         return id;
