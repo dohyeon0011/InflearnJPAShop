@@ -12,7 +12,7 @@ import java.util.List;
  * 웬만하면 다대일 양방향 매핑 사용(단방향이 일단 최우선)
  */
 @Entity
-public class Member {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MEMBER_ID")
