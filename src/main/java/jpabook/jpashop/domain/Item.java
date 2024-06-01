@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+public abstract class Item extends BaseEntity { // Item 테이블을 단독으로 쓰지 않을 거라 추상 클래스로 생성
 
     @Id
     @GeneratedValue
