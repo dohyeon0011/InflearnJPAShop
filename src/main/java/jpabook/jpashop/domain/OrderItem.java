@@ -2,6 +2,7 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 
+// order와 item은 다대다 관계 이기 때문에 일대다, 다대일로 풀어냄
 @Entity
 public class OrderItem extends BaseEntity {
 
@@ -16,11 +17,11 @@ public class OrderItem extends BaseEntity {
     /*@Column(name = "ITEM_ID")
     private Long itemId;*/
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 
