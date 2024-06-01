@@ -14,9 +14,8 @@ public class Delivery extends BaseEntity {
     private DeliveryStatus status;
 
     // ORDER와 일대일 양방향
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
-
 
     public Long getId() {
         return id;
