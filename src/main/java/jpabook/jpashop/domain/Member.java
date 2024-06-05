@@ -19,9 +19,14 @@ public class Member extends BaseEntity {
     private Long id;
 
     private String name;
-    private String city;
+
+    @Embedded
+    private Address address;
+
+    // 임베디드 값 타입으로
+    /*private String city;
     private String street;
-    private String zipcode;
+    private String zipcode;*/
 
     // 일대다
     /*@OneToMany
@@ -44,7 +49,15 @@ public class Member extends BaseEntity {
         this.name = name;
     }
 
-    public String getCity() {
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    /*public String getCity() {
         return city;
     }
 
@@ -66,5 +79,7 @@ public class Member extends BaseEntity {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }
+    }*/
+
+
 }
