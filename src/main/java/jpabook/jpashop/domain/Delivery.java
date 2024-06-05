@@ -8,9 +8,13 @@ public class Delivery extends BaseEntity {
     @Id @GeneratedValue
     private Long id;
 
-    private String city;
+    @Embedded
+    private Address address;
+
+    // 임베디드 값 타입으로
+    /*private String city;
     private String street;
-    private String zipcode;
+    private String zipcode;*/
     private DeliveryStatus status;
 
     // ORDER와 일대일 양방향
@@ -25,7 +29,15 @@ public class Delivery extends BaseEntity {
         this.id = id;
     }
 
-    public String getCity() {
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    /*public String getCity() {
         return city;
     }
 
@@ -47,7 +59,7 @@ public class Delivery extends BaseEntity {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }
+    }*/
 
     public DeliveryStatus getStatus() {
         return status;
